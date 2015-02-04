@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CellInquilino" rowHeight="164" id="TbL-Ku-Wu8" customClass="CustomCellInquilino" customModule="ProvaJoule2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TbL-Ku-Wu8" id="FaA-Q3-XuA">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ico-utente.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qxh-EY-gVx">
+                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="hCa-sg-bb4">
+                        <rect key="frame" x="365" y="1" width="34" height="44"/>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Nome" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="12I-i5-Qit">
+                        <rect key="frame" x="44" y="4" width="232" height="21"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.47058823529999999" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Piano" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-X6-hWu">
+                        <rect key="frame" x="44" y="21" width="232" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="div-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ut7-xz-Hg6">
+                        <rect key="frame" x="0.0" y="43" width="400" height="1"/>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ifT-WE-nbD">
+                        <rect key="frame" x="295" y="12" width="65" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hCa-sg-bb4" firstAttribute="leading" secondItem="ifT-WE-nbD" secondAttribute="trailing" constant="2" id="5f9-V4-Ds1"/>
+                    <constraint firstItem="hCa-sg-bb4" firstAttribute="top" secondItem="FaA-Q3-XuA" secondAttribute="topMargin" constant="8" id="Eqw-tI-6xr"/>
+                    <constraint firstItem="Qxh-EY-gVx" firstAttribute="leading" secondItem="FaA-Q3-XuA" secondAttribute="leadingMargin" constant="5" id="RNe-UD-9Bw"/>
+                    <constraint firstItem="12I-i5-Qit" firstAttribute="leading" secondItem="Qxh-EY-gVx" secondAttribute="trailing" constant="8" id="eEt-E1-RLh"/>
+                    <constraint firstItem="UXt-X6-hWu" firstAttribute="leading" secondItem="Qxh-EY-gVx" secondAttribute="trailing" constant="8" id="ghf-b3-vnp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hCa-sg-bb4" secondAttribute="trailing" constant="8" id="sO3-qe-L04"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.92156862750000001" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="arrow" destination="hCa-sg-bb4" id="Cfe-s3-umm"/>
+                <outlet property="nomeLbl" destination="12I-i5-Qit" id="s1s-xe-yNQ"/>
+                <outlet property="percLbl" destination="ifT-WE-nbD" id="yYf-Bc-dYg"/>
+                <outlet property="pianoLbl" destination="UXt-X6-hWu" id="phG-8M-7dp"/>
+            </connections>
+            <point key="canvasLocation" x="-12" y="146"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow-right.png" width="8" height="14"/>
+        <image name="div-black.png" width="320" height="1"/>
+        <image name="ico-utente.png" width="32" height="31"/>
+    </resources>
+</document>
