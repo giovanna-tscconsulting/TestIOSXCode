@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 let IS_IPHONE:Bool = UIDevice.currentDevice().userInterfaceIdiom == .Phone
 let IS_RETINA = UIScreen.mainScreen().scale >= 2.0
@@ -224,6 +226,7 @@ class ViewController: UIViewController {
         loginAlert.addButtonWithTitle("OK")
         loginAlert.alertViewStyle = UIAlertViewStyle.LoginAndPasswordInput
         loginAlert.tag = 1
+        
         loginAlert.show()
         
     }
