@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 
+
 let IS_IPHONE:Bool = UIDevice.currentDevice().userInterfaceIdiom == .Phone
 let IS_RETINA = UIScreen.mainScreen().scale >= 2.0
 let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
@@ -22,7 +23,7 @@ let IS_IPHONE_5 = IS_IPHONE && SCREEN_MAX_LENGTH == 568.0
 let IS_IPHONE_6 = IS_IPHONE && SCREEN_MAX_LENGTH == 667.0
 let IS_IPHONE_6P = IS_IPHONE && SCREEN_MAX_LENGTH == 736.0
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
     
     var imageView:UIImageView = UIImageView()
@@ -46,8 +47,17 @@ class ViewController: UIViewController {
     var str:String!
     var us:String!
     var pass:String!
+    var check:UIButton!
+    var loginTF:UITextField!
+    var passTF:UITextField!
+    var fileManager:NSFileManager!
     
     @IBOutlet var image:UIImageView!
+    @IBOutlet var loginVIew:UIView!
+    
+    override func awakeFromNib() {
+        
+    }
     
     
     override func viewDidLoad() {
@@ -101,6 +111,8 @@ class ViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userLoginSuccessInquilino:", name: "ClimagestUserLoginSuccessInquilino", object: nil)
         
+      
+        
         
         var frame = CGRectMake(0, 0, 0, 0)
         
@@ -126,14 +138,63 @@ class ViewController: UIViewController {
         
         view.addSubview(image)
 
+        loginVIew = UIView(frame: CGRectMake(60, 200, 250, 200))
+        loginVIew.layer.cornerRadius = 8.0
+        loginVIew.backgroundColor = UIColor(red: 197/255, green: 164/255, blue: 169/255, alpha: 1)
+        loginVIew.center = self.view.center
         
-        /*
-         var blackRect:CGRect = CGRect (x: 0, y: y, width: width, height: 88)
-         var black:UIView = UIView (frame: blackRect)
-         black.backgroundColor = UIColor.blackColor()
-         self.view.addSubview(black)
-        */
+        var loginLabel:UILabel = UILabel(frame: CGRectMake(104, 13, 43, 21))
+        loginLabel.text = "Login"
+        loginLabel.textColor = UIColor.whiteColor()
+        loginVIew.addSubview(loginLabel)
         
+        var separator:UIImageView = UIImageView(frame: CGRectMake(0, 36, 250, 1))
+        separator.image = UIImage(named: "separator.png")
+        loginVIew.addSubview(separator)
+        
+        loginTF = UITextField(frame: CGRectMake(25, 47, 205, 30))
+        loginTF.layer.cornerRadius = 8.0
+        loginTF.backgroundColor = UIColor.whiteColor()
+        loginTF.placeholder = "Login"
+        loginVIew.addSubview(loginTF)
+        
+        passTF = UITextField(frame: CGRectMake(25, 85, 205, 30))
+        passTF.secureTextEntry = true
+        passTF.layer.cornerRadius = 8.0
+        passTF.backgroundColor = UIColor.whiteColor()
+        passTF.placeholder = "Password"
+        loginVIew.addSubview(passTF)
+        
+        check = UIButton(frame: CGRectMake(25, 129, 22, 21))
+        var imageSel:UIImage = UIImage(named: "checked_checkbox.png")!
+        check.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeImage:"))
+        //check.setBackgroundImage(imageSel, forState: UIControlState.Highlighted)
+        var imageNotSel:UIImage = UIImage(named: "unchecked_checkbox.png")!
+        check.setImage(imageNotSel, forState: UIControlState.Normal)
+        loginVIew.addSubview(check)
+        
+        var memLabel:UILabel = UILabel(frame: CGRectMake(58, 129, 152, 21))
+        memLabel.text = "Memorizza le credenziali"
+        memLabel.font = UIFont(name: "HelveticaNeue", size: 13.0)
+        memLabel.textColor = UIColor.whiteColor()
+        loginVIew.addSubview(memLabel)
+        
+        var separator2:UIImageView = UIImageView(frame: CGRectMake(0, 160, 250, 1))
+        separator2.image = UIImage(named: "separator.png")
+        loginVIew.addSubview(separator2)
+        
+        var cancButton:UIButton = UIButton(frame: CGRectMake(0, 162, 125, 30))
+        cancButton.setTitle("Cancel", forState: UIControlState.Normal)
+        cancButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        cancButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        loginVIew.addSubview(cancButton)
+        
+        
+        var okButton:UIButton = UIButton(frame: CGRectMake(125, 162, 125, 30))
+        okButton.setTitle("OK", forState: UIControlState.Normal)
+        okButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        okButton.addTarget(self, action: "okAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        loginVIew.addSubview(okButton)
        
         var loginWidth:CGFloat = 86
         buttonLogin = UIButton.buttonWithType(UIButtonType.System) as UIButton
@@ -161,20 +222,25 @@ class ViewController: UIViewController {
         messageLabel.textColor = UIColor.whiteColor()
         messageLabel.hidden = true
         self.view.addSubview(messageLabel)
+        
+        //showAlertForLogin()
     
-    
+        
+        
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as NSString
         path = documentsDirectory.stringByAppendingPathComponent("MyFile9.plist")
-        
+        /*
         let fileManager = NSFileManager.defaultManager()
         //fileManager.createFileAtPath(path, contents: nil, attributes: nil)
+       */
+    
         
-        
-       
-        if(!fileManager.fileExistsAtPath(path) ){ //|| self.userTextField.text == "" || self.passTextField == ""){
+       fileManager = NSFileManager.defaultManager()
+        if(!fileManager.fileExistsAtPath(path)){
             fileManager.createFileAtPath(path, contents: nil, attributes: nil)
             showAlertForLogin()
+        
         }else {
             var cl:ClimagestLogin = ClimagestLogin()
             var fileContent:NSData
@@ -187,10 +253,10 @@ class ViewController: UIViewController {
             pass = str.componentsSeparatedByString("_")[1]
             cl.startLogin(us, password: pass)
             }
-        }
+       }
         
         
-        
+       
        
 
         
@@ -199,7 +265,45 @@ class ViewController: UIViewController {
     
 
 
-
+    func changeImage(recognizer:UITapGestureRecognizer){
+        var imageSel:UIImage = UIImage(named: "checked_checkbox.png")!
+        check.selected = true
+        check.setImage(imageSel, forState:UIControlState.Normal)
+        check.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeImageTwo:"))
+    }
+    
+    func changeImageTwo(recognizer:UITapGestureRecognizer){
+        var imageNotSel:UIImage = UIImage(named: "unchecked_checkbox.png")!
+        check.selected = false
+        check.setImage(imageNotSel, forState:UIControlState.Normal)
+        check.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeImage:"))
+    }
+    
+    func cancelAction(sender:UIButton){
+        var button:UIButton = sender
+        buttonLogin.enabled = true
+        loginVIew.removeFromSuperview()
+        
+    }
+    
+    func okAction (sender:UIButton){
+        var button:UIButton = sender
+        self.userTextField = loginTF
+        self.passTextField = passTF
+        self.activityIndicator.startAnimating()
+        self.messageLabel.hidden = false
+        buttonLogin.enabled = false
+        println(self.userTextField.text)
+        println(self.passTextField.text)
+        loginVIew.removeFromSuperview()
+        var cred:String = self.userTextField.text+"_"+self.passTextField.text
+        if(check.selected){
+            var content:NSData = cred.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
+            content.writeToFile(path, atomically: true)
+        }
+        var cl:ClimagestLogin = ClimagestLogin()
+        cl.startLogin(self.userTextField.text, password: self.passTextField.text)
+    }
 
     
 
@@ -227,8 +331,8 @@ class ViewController: UIViewController {
         loginAlert.alertViewStyle = UIAlertViewStyle.LoginAndPasswordInput
         loginAlert.tag = 1
         
-        loginAlert.show()
-        
+        //loginAlert.show()
+        self.view.addSubview(loginVIew)
     }
 
 

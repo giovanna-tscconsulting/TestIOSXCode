@@ -111,8 +111,9 @@
 		2973F0DE1A40796D009283C4 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2973F0DD1A40796D009283C4 /* CustomCell.xib */; };
 		2973F0E01A407A70009283C4 /* CustomCellEdificio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2973F0DF1A407A70009283C4 /* CustomCellEdificio.swift */; };
 		2975E9211A8375D3006005E6 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2975E9201A8375D3006005E6 /* Checkbox.swift */; };
-		2975E9231A8376DF006005E6 /* checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2975E9221A8376DF006005E6 /* checked_checkbox.png */; };
-		2975E9251A837753006005E6 /* unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2975E9241A837753006005E6 /* unchecked_checkbox.png */; };
+		298C65281A84D9F500E6EFCD /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298C65271A84D9F500E6EFCD /* LoginView.storyboard */; };
+		298C652C1A850FC200E6EFCD /* unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 298C652B1A850FC200E6EFCD /* unchecked_checkbox.png */; };
+		298C65321A85159300E6EFCD /* checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 298C65311A85159300E6EFCD /* checked_checkbox.png */; };
 		2996907B1A39ECF5007B3481 /* icona_lista_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996904B1A39ECF5007B3481 /* icona_lista_on.png */; };
 		2996907C1A39ECF5007B3481 /* ico-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996904C1A39ECF5007B3481 /* ico-next.png */; };
 		2996907D1A39ECF5007B3481 /* ico-prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996904D1A39ECF5007B3481 /* ico-prev.png */; };
@@ -292,8 +293,9 @@
 		2973F0DD1A40796D009283C4 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		2973F0DF1A407A70009283C4 /* CustomCellEdificio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellEdificio.swift; sourceTree = "<group>"; };
 		2975E9201A8375D3006005E6 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
-		2975E9221A8376DF006005E6 /* checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked_checkbox.png; sourceTree = "<group>"; };
-		2975E9241A837753006005E6 /* unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked_checkbox.png; sourceTree = "<group>"; };
+		298C65271A84D9F500E6EFCD /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		298C652B1A850FC200E6EFCD /* unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked_checkbox.png; sourceTree = "<group>"; };
+		298C65311A85159300E6EFCD /* checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked_checkbox.png; sourceTree = "<group>"; };
 		2996904B1A39ECF5007B3481 /* icona_lista_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona_lista_on.png; sourceTree = "<group>"; };
 		2996904C1A39ECF5007B3481 /* ico-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-next.png"; sourceTree = "<group>"; };
 		2996904D1A39ECF5007B3481 /* ico-prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-prev.png"; sourceTree = "<group>"; };
@@ -494,8 +496,8 @@
 		2956A90B1A30AAE3003B1601 /* ProvaJoule2 */ = {
 			isa = PBXGroup;
 			children = (
-				2975E9241A837753006005E6 /* unchecked_checkbox.png */,
-				2975E9221A8376DF006005E6 /* checked_checkbox.png */,
+				298C65311A85159300E6EFCD /* checked_checkbox.png */,
+				298C652B1A850FC200E6EFCD /* unchecked_checkbox.png */,
 				2904EF561A37180200F41AAC /* splash320x480.jpg */,
 				2904EF501A37009000F41AAC /* bg.png */,
 				2956A90E1A30AAE3003B1601 /* AppDelegate.swift */,
@@ -514,6 +516,7 @@
 				2924B48D1A5FD1D000945439 /* InfoVC.storyboard */,
 				2924B4911A60260F00945439 /* PieChartViewC.storyboard */,
 				2925FCC71A6E9997007EEA15 /* Spash.xib */,
+				298C65271A84D9F500E6EFCD /* LoginView.storyboard */,
 			);
 			path = ProvaJoule2;
 			sourceTree = "<group>";
@@ -741,9 +744,11 @@
 				2924B4D81A66BF0700945439 /* Default-568h@2x.png in Resources */,
 				299690A51A39ECF5007B3481 /* AccountTableRow_Button.png in Resources */,
 				2924B4D21A66BF0700945439 /* ico-utente@2x.png in Resources */,
+				298C652C1A850FC200E6EFCD /* unchecked_checkbox.png in Resources */,
 				2924B48E1A5FD1D000945439 /* InfoVC.storyboard in Resources */,
 				299690951A39ECF5007B3481 /* Default.png in Resources */,
 				2924B4F31A66BF0700945439 /* rowcell@2x.png in Resources */,
+				298C65281A84D9F500E6EFCD /* LoginView.storyboard in Resources */,
 				2924B4F51A66BF0700945439 /* login_alert_logo@2x.png in Resources */,
 				29A330511A6FEEE50097E2D5 /* logo-tsc@3x.png in Resources */,
 				2924B4DF1A66BF0700945439 /* openfluid@2x.png in Resources */,
@@ -813,12 +818,12 @@
 				2924B4F41A66BF0700945439 /* pie_chart@2x.png in Resources */,
 				295F23B81A44441F00D4C156 /* TabBar.storyboard in Resources */,
 				2924B4E41A66BF0700945439 /* icona_lista@2x.png in Resources */,
-				2975E9231A8376DF006005E6 /* checked_checkbox.png in Resources */,
 				2924B4F71A66BF0700945439 /* background@2x.png in Resources */,
 				299690901A39ECF5007B3481 /* openfluid.png in Resources */,
 				2924B4E51A66BF0700945439 /* icona_torta@2x.png in Resources */,
 				2924B4E31A66BF0700945439 /* icona_info@2x.png in Resources */,
 				299690801A39ECF5007B3481 /* logo-tsc.png in Resources */,
+				298C65321A85159300E6EFCD /* checked_checkbox.png in Resources */,
 				2924B4CD1A66BF0700945439 /* ico-next-orange@2x.png in Resources */,
 				2996909E1A39ECF5007B3481 /* login_alert_logo.png in Resources */,
 				299690A91A39ECF5007B3481 /* Box_PiecharBig.png in Resources */,
@@ -843,7 +848,6 @@
 				291E05041A7130CF00FA1A35 /* div-black@3x.png in Resources */,
 				299690811A39ECF5007B3481 /* ico-next-orange.png in Resources */,
 				291E04F41A71189D00FA1A35 /* icona_torta@3x.png in Resources */,
-				2975E9251A837753006005E6 /* unchecked_checkbox.png in Resources */,
 				2915B3831A6EB18B002049E1 /* logo_gestoreios7@2x.png in Resources */,
 				2915B3841A6EB18B002049E1 /* logo_gestore@2x.png in Resources */,
 				29A3304F1A6FEED40097E2D5 /* logo-ataglance@3x.png in Resources */,
